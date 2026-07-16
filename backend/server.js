@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const path = require('path');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const http = require('http');
@@ -18,6 +19,10 @@ const io = new Server(server, { cors: { origin: process.env.CLIENT_URL || '*' } 
 
 app.use(cors());
 app.use(express.json());
+
+// --- Serve the landing page (/) and app demo (/app.html) from the same
+// service, so one Railway service + one URL covers both frontend and API ---
+app.use(express.static(path.join(__dirname, 'public')));
 
 // --- Socket.IO: real-time order tracking + vendor notifications ---
 io.on('connection', (socket) => {
@@ -91,5 +96,5 @@ connectMongo();
 
 process.on('SIGTERM', () => {
   console.log('SIGTERM received — shutting down gracefully');
-  server.close(() => mongoose.connection.close(false, () => process.exit(0)));
+  server.close(() => mongoose.connection.close().finally(() => process.exit(0)));
 });
