@@ -1,0 +1,79 @@
+:root{
+  --blue-950:#0d1f33; --blue-800:#153a5c; --blue-600:#1f5a8a;
+  --sand-100:#f3ede0; --sand-200:#e9dfc9;
+  --mustard-500:#e0a530; --mustard-600:#c98a1c;
+  --ink-900:#1a1d21; --ledger-green:#3d6b4f; --white:#fffdf8;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:var(--sand-100);color:var(--ink-900);}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif;}
+.mono{font-family:'IBM Plex Mono',monospace;}
+input,select,button{font-family:inherit;}
+a{color:inherit;text-decoration:none;}
+
+.shell{max-width:1100px;margin:0 auto;min-height:100vh;background:var(--white);box-shadow:0 0 60px rgba(13,31,51,0.08);}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-bottom:1px solid rgba(21,58,92,0.12);background:var(--blue-950);color:var(--white);}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;}
+.logo-mark{width:28px;height:28px;border-radius:7px;background:var(--mustard-500);color:var(--blue-950);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono';font-weight:700;font-size:13px;}
+
+.auth-wrap{max-width:380px;margin:80px auto;padding:32px;background:var(--white);border:1px solid rgba(21,58,92,0.12);border-radius:14px;}
+.auth-wrap h2{color:var(--blue-950);margin-bottom:6px;}
+.auth-wrap p.sub{color:#6b7076;font-size:13.5px;margin-bottom:22px;}
+.field{margin-bottom:14px;}
+.field label{display:block;font-size:12.5px;color:#6b7076;margin-bottom:5px;}
+.field input,.field select{width:100%;padding:11px 12px;border:1px solid rgba(21,58,92,0.2);border-radius:8px;font-size:14px;}
+.btn{width:100%;background:var(--blue-800);color:var(--white);border:none;padding:12px;border-radius:9px;font-weight:600;font-size:14.5px;cursor:pointer;}
+.btn.secondary{background:transparent;border:1.5px solid var(--blue-800);color:var(--blue-800);margin-top:8px;}
+.error-msg{background:#fbe9e7;color:#b3392c;font-size:13px;padding:10px 12px;border-radius:8px;margin-bottom:14px;}
+.switch-link{text-align:center;margin-top:16px;font-size:13.5px;color:var(--blue-600);cursor:pointer;}
+
+.role-switch{display:flex;background:rgba(255,255,255,0.1);border-radius:100px;padding:3px;}
+.role-btn{padding:7px 16px;border-radius:100px;font-size:13px;font-weight:600;color:rgba(255,255,255,0.7);cursor:pointer;border:none;background:none;}
+.role-btn.active{background:var(--mustard-500);color:var(--blue-950);}
+.logout-btn{background:none;border:1px solid rgba(255,255,255,0.3);color:var(--white);padding:7px 14px;border-radius:100px;font-size:13px;cursor:pointer;}
+
+.layout{display:grid;grid-template-columns:1fr 340px;gap:0;}
+.catalog{padding:22px 24px;}
+.cat-tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:14px;margin-bottom:16px;border-bottom:1px solid rgba(21,58,92,0.1);}
+.cat-tab{white-space:nowrap;padding:8px 16px;border-radius:100px;border:1.5px solid rgba(21,58,92,0.18);font-size:13.5px;font-weight:600;color:var(--blue-800);cursor:pointer;background:none;}
+.cat-tab.active{background:var(--blue-800);color:var(--white);border-color:var(--blue-800);}
+.product-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+.product-card{border:1px solid rgba(21,58,92,0.12);border-radius:12px;padding:16px;}
+.p-name{font-weight:600;font-size:14.5px;color:var(--blue-950);}
+.p-vendor{font-size:11.5px;color:#8a8f95;margin-top:2px;}
+.p-price{font-family:'IBM Plex Mono';font-weight:600;color:var(--ledger-green);font-size:15px;margin-top:8px;}
+.p-unit{font-size:11px;color:#8a8f95;}
+.p-actions{display:flex;align-items:center;justify-content:space-between;margin-top:12px;}
+.qty-ctrl{display:flex;align-items:center;gap:10px;border:1px solid rgba(21,58,92,0.2);border-radius:8px;padding:4px 10px;}
+.qty-ctrl button{background:none;border:none;font-size:16px;color:var(--blue-800);cursor:pointer;width:20px;}
+.add-btn{background:var(--blue-800);color:var(--white);border:none;padding:8px 14px;border-radius:7px;font-size:12.5px;font-weight:600;cursor:pointer;}
+
+.cart-panel{background:var(--sand-100);border-left:1px solid rgba(21,58,92,0.12);padding:22px;}
+.cart-line{display:flex;justify-content:space-between;font-size:13.5px;padding:9px 0;border-bottom:1px dashed rgba(21,58,92,0.15);}
+.cart-empty{font-size:13.5px;color:#8a8f95;padding:20px 0;text-align:center;}
+.cart-total{display:flex;justify-content:space-between;font-weight:700;padding-top:12px;margin-top:8px;border-top:2px solid var(--blue-950);font-family:'IBM Plex Mono';}
+.place-order{width:100%;background:var(--mustard-500);color:var(--blue-950);border:none;padding:13px;border-radius:9px;font-weight:700;font-size:14px;margin-top:16px;cursor:pointer;}
+.place-order:disabled{opacity:0.4;cursor:not-allowed;}
+
+.orders-section{padding:0 24px 24px;}
+.order-card{border:1px solid rgba(21,58,92,0.12);border-radius:10px;padding:14px 16px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;}
+.order-id{font-family:'IBM Plex Mono';font-size:12px;color:#8a8f95;}
+.order-status{font-size:12px;font-weight:600;padding:5px 10px;border-radius:100px;}
+.status-placed{background:#fdf1d9;color:var(--mustard-600);}
+.status-confirmed,.status-dispatched,.status-in_transit{background:#e6f0f9;color:var(--blue-600);}
+.status-delivered{background:#e5f2e8;color:var(--ledger-green);}
+.status-cancelled{background:#fbe9e7;color:#b3392c;}
+
+.vendor-wrap{padding:24px;}
+.stat-row{display:flex;gap:16px;margin-bottom:24px;flex-wrap:wrap;}
+.stat-box{flex:1;min-width:150px;background:var(--sand-100);border-radius:12px;padding:18px;}
+.stat-box b{font-family:'Space Grotesk';font-size:24px;color:var(--blue-950);display:block;}
+.stat-box span{font-size:12px;color:#6b7076;}
+table{width:100%;border-collapse:collapse;font-size:13.5px;}
+th{text-align:left;color:#6b7076;font-size:11.5px;text-transform:uppercase;letter-spacing:0.04em;padding:10px 8px;border-bottom:1px solid rgba(21,58,92,0.15);}
+td{padding:12px 8px;border-bottom:1px solid rgba(21,58,92,0.08);}
+.badge{padding:4px 10px;border-radius:100px;font-size:11.5px;font-weight:600;}
+
+.toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(120%);background:var(--blue-950);color:var(--white);padding:14px 22px;border-radius:10px;font-size:14px;font-weight:500;transition:transform .3s ease;z-index:100;}
+.toast.show{transform:translateX(-50%) translateY(0);}
+.loading-msg{padding:40px;text-align:center;color:#6b7076;}
